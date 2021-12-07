@@ -1,6 +1,6 @@
 [
   {
-    "code": "100",
+    "code": 100,
     "description": {
       "en-US": "This interim response indicates that the client should continue the request or ignore the response if the request is already finished.",
       "ja-JP": "これは暫定レスポンスで、その時点までのすべてに問題がなく、クライアントはリクエストを継続してよい、またもしリクエストが完了している場合はレスポンスを無視してよいことを示します。"
@@ -8,7 +8,7 @@
     "note": "Continue"
   },
   {
-    "code": "101",
+    "code": 101,
     "description": {
       "en-US": "This code is sent in response to an Upgrade request header from the client and indicates the protocol the server is switching to.",
       "ja-JP": "このコードはクライアントからの Upgrade (en-US) リクエストヘッダーのレスポンスとして送信され、サーバーはプロトコルを切り替えていることを示します。"
@@ -16,7 +16,7 @@
     "note": "Switching Protocol"
   },
   {
-    "code": "102",
+    "code": 102,
     "description": {
       "en-US": "This code indicates that the server has received and is processing the request, but no response is available yet.",
       "ja-JP": "このコードは、サーバーはリクエストを受け取って処理しているが、まだレスポンスを提供できないことを示します。"
@@ -24,7 +24,7 @@
     "note": "Processing"
   },
   {
-    "code": "103",
+    "code": 103,
     "description": {
       "en-US": "This status code is primarily intended to be used with the Link header, letting the user agent start preloading resources while the server prepares a response.",
       "ja-JP": "このステータスコードは主に Link ヘッダーとともに使用され、サーバーがリソースを準備している間、ユーザーエージェントがリソースの先読みを開始できるようにするためのものです。"
@@ -32,7 +32,7 @@
     "note": "Early Hints"
   },
   {
-    "code": "200",
+    "code": 200,
     "description": {
       "en-US": "The request succeeded. The result meaning of \"success\" depends on the HTTP method:GET: The resource has been fetched and transmitted in the message body.HEAD: The representation headers are included in the response without any message body.PUT or POST: The resource describing the result of the action is transmitted in the message body.TRACE: The message body contains the request message as received by the server.",
       "ja-JP": "リクエストが成功したことを示します。成功が意味することは、 HTTP メソッドにより異なります。\n \nGET: リソースが読み込まれ、メッセージ本文で転送された。\nHEAD: メッセージ本文にエンティティヘッダーある。\nPUT または POST: 操作の結果を表すリソースがメッセージ本文で送信される。\nTRACE: メッセージ本文に、サーバーが受け取ったリクエストメッセージが含まれている。\n\n"
@@ -40,7 +40,7 @@
     "note": "OK"
   },
   {
-    "code": "201",
+    "code": 201,
     "description": {
       "en-US": "The request succeeded, and a new resource was created as a result. This is typically the response sent after POST requests, or some PUT requests.",
       "ja-JP": "リクエストは成功し、その結果新たなリソースが作成されたことを示します。これは一般的に、 POST リクエストや、一部の PUT リクエストを送信した後のレスポンスになります。"
@@ -48,7 +48,7 @@
     "note": "Created"
   },
   {
-    "code": "202",
+    "code": 202,
     "description": {
       "en-US": " The request has been received but not yet acted upon. It is noncommittal, since there is no way in HTTP to later send an asynchronous response indicating the outcome of the request. It is intended for cases where another process or server handles the request, or for batch processing. ",
       "ja-JP": "リクエストは受理されたが、まだ実行されていないことを示します。これはあいまいであり、なぜなら HTTP ではリクエストを処理した結果を示す非同期なレスポンスを後から送信する方法がないためです。リクエストは別のプロセスかサーバーが処理する、またはバッチ処理する予定です。"
@@ -56,7 +56,7 @@
     "note": "Accepted"
   },
   {
-    "code": "203",
+    "code": 203,
     "description": {
       "en-US": " This response code means the returned metadata is not exactly the same as is available from the origin server, but is collected from a local or a third-party copy. This is mostly used for mirrors or backups of another resource. Except for that specific case, the 200 OK response is preferred to this status. ",
       "ja-JP": "このレスポンスコードは、返されるメタ情報のセットが生成元のサーバーから得られるセットと同一ではなく、ローカルまたは第三者の持つ複製から収集したことを表します。これは主に、他のリソースのミラーやバックアップを使用したときに使用されます。このような場合以外は、このステータスより \"200 OK\" のほうが好ましいレスポンスです。"
@@ -64,7 +64,7 @@
     "note": "Non-Authoritative Information"
   },
   {
-    "code": "204",
+    "code": 204,
     "description": {
       "en-US": " There is no content to send for this request, but the headers may be useful. The user agent may update its cached headers for this resource with the new ones. ",
       "ja-JP": "リクエストに対して送信するコンテンツはありませんが、ヘッダーは有用であることを示します。ユーザーエージェントはこのリソースに関するキャッシュ済みのヘッダーを、新たな内容に更新します。"
@@ -72,7 +72,7 @@
     "note": "No Content"
   },
   {
-    "code": "205",
+    "code": 205,
     "description": {
       "en-US": "Tells the user agent to reset the document which sent this request.",
       "ja-JP": "ユーザーエージェントに対し、リクエストを送信した文書をリセットするよう伝達します。"
@@ -80,7 +80,7 @@
     "note": "Reset Content"
   },
   {
-    "code": "206",
+    "code": 206,
     "description": {
       "en-US": "This response code is used when the Range header is sent from the client to request only part of a resource.",
       "ja-JP": "このレスポンスコードは、クライアントが Range ヘッダーを送信し、リソースの一部だけをリクエストした時に使用されます。"
@@ -88,7 +88,7 @@
     "note": "Partial Content"
   },
   {
-    "code": "207",
+    "code": 207,
     "description": {
       "en-US": "Conveys information about multiple resources, for situations where multiple status codes might be appropriate.",
       "ja-JP": "複数のステータスコードがあてはまる状況で、複数のリソースに関する情報を伝えます。"
@@ -96,7 +96,7 @@
     "note": "Multi-Status"
   },
   {
-    "code": "208",
+    "code": 208,
     "description": {
       "en-US": "Used inside a <dav:propstat> response element to avoid repeatedly enumerating the internal members of multiple bindings to the same collection.",
       "ja-JP": "同じコレクションに繰り返し複数のバインディングする内部メンバーを列挙することを避けるため、 <dav:propstat> レスポンスエレメントの内部で使用します。"
@@ -104,7 +104,7 @@
     "note": "Already Reported"
   },
   {
-    "code": "226",
+    "code": 226,
     "description": {
       "en-US": "The server has fulfilled a GET request for the resource, and the response is a representation of the result of one or more instance-manipulations applied to the current instance.",
       "ja-JP": "サーバーはリソースへの GET リクエストの処理を完了しており、レスポンスは現在のインスタンスに適用された 1 つ以上の instance manipulation の結果を表します。"
@@ -112,7 +112,7 @@
     "note": "IM Used"
   },
   {
-    "code": "300",
+    "code": 300,
     "description": {
       "en-US": "The request has more than one possible response. The user agent or user should choose one of them. (There is no standardized way of choosing one of the responses, but HTML links to the possibilities are recommended so the user can pick.)",
       "ja-JP": "リクエストに対して複数のレスポンスがあることを示します。ユーザーエージェントやユーザーは、それらからひとつを選択します。 (複数のレスポンスからひとつを選ぶ方法は標準化されていませんが、選択肢へリンクする HTML が推奨されており、それによってユーザーが選択することができます。)"
@@ -120,7 +120,7 @@
     "note": "Multiple Choice"
   },
   {
-    "code": "301",
+    "code": 301,
     "description": {
       "en-US": "The URL of the requested resource has been changed permanently. The new URL is given in the response.",
       "ja-JP": "リクエストされたリソースの URL が永遠に変更されたことを示します。レスポンスで新しい URL が与えられます。"
@@ -128,7 +128,7 @@
     "note": "Moved Permanently"
   },
   {
-    "code": "302",
+    "code": 302,
     "description": {
       "en-US": " This response code means that the URI of requested resource has been changed temporarily. Further changes in the URI might be made in the future. Therefore, this same URI should be used by the client in future requests. ",
       "ja-JP": "このレスポンスコードは、リクエストされたリソースの URI が一時的に変更されたことを示します。 URI は将来、さらに変更される可能性があります。従って、クライアントは将来のリクエストでも同じ URI を使用するべきです。"
@@ -136,7 +136,7 @@
     "note": "Found"
   },
   {
-    "code": "303",
+    "code": 303,
     "description": {
       "en-US": "The server sent this response to direct the client to get the requested resource at another URI with a GET request.",
       "ja-JP": "サーバーはこのレスポンスを、リクエストされたリソースを別の URI で GET リクエストを使用して取得するようクライアントを誘導するために送信します。"
@@ -144,7 +144,7 @@
     "note": "See Other"
   },
   {
-    "code": "304",
+    "code": 304,
     "description": {
       "en-US": " This is used for caching purposes. It tells the client that the response has not been modified, so the client can continue to use the same cached version of the response. ",
       "ja-JP": "これはキャッシュ用に使用します。このレスポンスコードはクライアントに対して、レスポンスは変更されていないことを示します。よって、クライアントはキャッシュ済みのレスポンスを使い続けます。"
@@ -152,7 +152,7 @@
     "note": "Not Modified"
   },
   {
-    "code": "305",
+    "code": 305,
     "description": {
       "en-US": " Defined in a previous version of the HTTP specification to indicate that a requested response must be accessed by a proxy. It has been deprecated due to security concerns regarding in-band configuration of a proxy. ",
       "ja-JP": "これは旧バージョンの HTTP 仕様書で、リクエストされたレスポンスはプロキシからアクセスしなければならないことを示していました。プロキシのインバンド設定に関するセキュリティの懸念により、このレスポンスコードは非推奨になりました。"
@@ -160,7 +160,7 @@
     "note": "Use Proxy"
   },
   {
-    "code": "306",
+    "code": 306,
     "description": {
       "en-US": "This response code is no longer used; it is just reserved. It was used in a previous version of the HTTP/1.1 specification.",
       "ja-JP": "このレスポンスコードはもう使用されず、予約済みです。 HTTP/1.1 仕様書の旧バージョンでは使用されていました。"
@@ -168,7 +168,7 @@
     "note": "unused"
   },
   {
-    "code": "307",
+    "code": 307,
     "description": {
       "en-US": " The server sends this response to direct the client to get the requested resource at another URI with same method that was used in the prior request. This has the same semantics as the 302 Found HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request. ",
       "ja-JP": "サーバーはこのレスポンスを、リクエストされたリソースを別の URI で、元のリクエストと同じメソッドを使用して取得するようクライアントを誘導するために送信します。これは 302 Found HTTP レスポンスコードと同じ意味を持ちますが、ユーザーエージェントは使用する HTTP メソッドを変更してはならない点が異なります。始めのリクエストで POST を用いた場合は、次のリクエストでも POST を使用しなければなりません。"
@@ -176,7 +176,7 @@
     "note": "Temporary Redirect"
   },
   {
-    "code": "308",
+    "code": 308,
     "description": {
       "en-US": " This means that the resource is now permanently located at another URI, specified by the Location: HTTP Response header. This has the same semantics as the 301 Moved Permanently HTTP response code, with the exception that the user agent must not change the HTTP method used: if a POST was used in the first request, a POST must be used in the second request. ",
       "ja-JP": "これは、リソースが Location: HTTP レスポンスヘッダーで指定した別の URI へ永続的に置かれていることを示します。これは 301 Moved Permanently HTTP レスポンスコードと同じ意味を持ちますが、ユーザーエージェントは使用する HTTP メソッドを変更してはならない点が異なります。始めのリクエストで POST を用いた場合は、次のリクエストでも POST を使用しなければなりません。"
@@ -184,7 +184,7 @@
     "note": "Permanent Redirect"
   },
   {
-    "code": "400",
+    "code": 400,
     "description": {
       "en-US": "The server could not understand the request due to invalid syntax.",
       "ja-JP": "構文が無効であるためサーバーがリクエストを理解できないことを示します。"
@@ -192,7 +192,7 @@
     "note": "Bad Request"
   },
   {
-    "code": "401",
+    "code": 401,
     "description": {
       "en-US": " Although the HTTP standard specifies \"unauthorized\", semantically this response means \"unauthenticated\". That is, the client must authenticate itself to get the requested response. ",
       "ja-JP": "HTTP 標準では \"unauthorized\" (不許可) と定義されていますが、意味的にはこのレスポンスは \"unauthenticated\" (未認証) です。つまり、クライアントはリクエストされたレスポンスを得るためには認証を受けなければなりません。"
@@ -200,7 +200,7 @@
     "note": "Unauthorized"
   },
   {
-    "code": "402",
+    "code": 402,
     "description": {
       "en-US": " This response code is reserved for future use. The initial aim for creating this code was using it for digital payment systems, however this status code is used very rarely and no standard convention exists. ",
       "ja-JP": "このレスポンスコードは、将来のために予約されています。このコードは当初、デジタル決済システムで使用するために作成されましたが、ごく稀にしか使用されておらず、標準的な慣例はありません。"
@@ -208,7 +208,7 @@
     "note": "Payment Required"
   },
   {
-    "code": "403",
+    "code": 403,
     "description": {
       "en-US": " The client does not have access rights to the content; that is, it is unauthorized, so the server is refusing to give the requested resource. Unlike 401 Unauthorized, the client's identity is known to the server. ",
       "ja-JP": "認証されていないなどの理由でクライアントにコンテンツのアクセス権がなく、サーバーが適切なレスポンスの返信を拒否していることを示します。 401 とは異なり、クライアントの識別子がサーバーに知られています。"
@@ -216,7 +216,7 @@
     "note": "Forbidden"
   },
   {
-    "code": "404",
+    "code": 404,
     "description": {
       "en-US": " The server can not find the requested resource. In the browser, this means the URL is not recognized. In an API, this can also mean that the endpoint is valid but the resource itself does not exist. Servers may also send this response instead of 403 Forbidden to hide the existence of a resource from an unauthorized client. This response code is probably the most well known due to its frequent occurrence on the web. ",
       "ja-JP": "サーバーがリクエストされたリソースを発見できないことを示します。ブラウザーでは、これは URL が解釈できなかったことを意味します。 API では、これは通信先が有効であるものの、リソース自体が存在しないことを意味することがあります。サーバーは認証されていないクライアントからリソースの存在を隠すために、 403 の代わりにこのレスポンスを返すことがあります。このレスポンスコードはウェブで頻繁に見られるため、おそらくもっとも有名なコードでしょう。"
@@ -224,7 +224,7 @@
     "note": "Not Found"
   },
   {
-    "code": "405",
+    "code": 405,
     "description": {
       "en-US": " The request method is known by the server but is not supported by the target resource. For example, an API may not allow calling DELETE to remove a resource. ",
       "ja-JP": "サーバーがリクエストメソッドを理解しているものの、無効にされており使用することができません。例えば、 API がリソースを DELETE することを禁止できます。 GET および HEAD の二つは必須で、無効にすることができず、このエラーコードを返してはいけません。"
@@ -232,7 +232,7 @@
     "note": "Method Not Allowed"
   },
   {
-    "code": "406",
+    "code": 406,
     "description": {
       "en-US": "This response is sent when the web server, after performing server-driven content negotiation, doesn't find any content that conforms to the criteria given by the user agent.",
       "ja-JP": "このレスポンスは、ウェブサーバーが サーバー駆動型コンテンツネゴシエーション (en-US) を行った結果、ユーザーエージェントから与えられた条件に合うコンテンツが見つからない場合に送信されます。"
@@ -240,7 +240,7 @@
     "note": "Not Acceptable"
   },
   {
-    "code": "407",
+    "code": 407,
     "description": {
       "en-US": "This is similar to 401 Unauthorized but authentication is needed to be done by a proxy.",
       "ja-JP": "これは 401 に似ていますが、プロキシサーバーが認証を要求している点が異なります。"
@@ -248,7 +248,7 @@
     "note": "Proxy Authentication Required"
   },
   {
-    "code": "408",
+    "code": 408,
     "description": {
       "en-US": " This response is sent on an idle connection by some servers, even without any previous request by the client. It means that the server would like to shut down this unused connection. This response is used much more since some browsers, like Chrome, Firefox 27+, or IE9, use HTTP pre-connection mechanisms to speed up surfing. Also note that some servers merely shut down the connection without sending this message. ",
       "ja-JP": "このレスポンスはクライアントが以前にリクエストを行っていない、アイドル状態のコネクションにおいて一部のサーバーが送信します。サーバーは使用していないコネクションの終了を望むことを示します。このレスポンスは Chrome、 Firefox 27 以降、IE9 など、閲覧を高速化するための HTTP 事前接続機能を使用する一部のブラウザーでよく使用します。また、一部のサーバーはこのメッセージを送らずにコネクションを閉じることに注意してください。"
@@ -256,7 +256,7 @@
     "note": "Request Timeout"
   },
   {
-    "code": "409",
+    "code": 409,
     "description": {
       "en-US": "This response is sent when a request conflicts with the current state of the server.",
       "ja-JP": "このレスポンスは、リクエストがサーバーの現在の状態と矛盾する場合に送られるでしょう。"
@@ -264,7 +264,7 @@
     "note": "Conflict"
   },
   {
-    "code": "410",
+    "code": 410,
     "description": {
       "en-US": " This response is sent when the requested content has been permanently deleted from server, with no forwarding address. Clients are expected to remove their caches and links to the resource. The HTTP specification intends this status code to be used for \"limited-time, promotional services\". APIs should not feel compelled to indicate resources that have been deleted with this status code. ",
       "ja-JP": "このレスポンスは、リクエストされたコンテンツがサーバーから永久に削除され、転送先アドレスがない場合に送られます。クライアントはこのリソースへのキャッシュやリンクを削除することが期待されます。 HTTP 仕様書ではこのコードを「期間限定のプロモーションサービス」に使用することを意図しています。 API はこのステータスコードの場合、削除されたリソースを無理に示そうとするべきではありません。"
@@ -272,7 +272,7 @@
     "note": "Gone"
   },
   {
-    "code": "411",
+    "code": 411,
     "description": {
       "en-US": "Server rejected the request because the Content-Length header field is not defined and the server requires it.",
       "ja-JP": "サーバーが Content-Length ヘッダー項目を要求しているが、リクエストで定義されていないために、サーバーがリクエストを拒否したことを示します。"
@@ -280,7 +280,7 @@
     "note": "Length Required"
   },
   {
-    "code": "412",
+    "code": 412,
     "description": {
       "en-US": "The client has indicated preconditions in its headers which the server does not meet.",
       "ja-JP": "サーバー側で適合しない前提条件が、クライアント側のヘッダーに含まれていることを示します。"
@@ -288,7 +288,7 @@
     "note": "Precondition Failed"
   },
   {
-    "code": "413",
+    "code": 413,
     "description": {
       "en-US": " Request entity is larger than limits defined by server. The server might close the connection or return an Retry-After header field. ",
       "ja-JP": "リクエストの本体がサーバーで定めている上限を超えていることを示します。サーバーはコネクションを閉じるか、Retry-After ヘッダー項目を返します。"
@@ -296,7 +296,7 @@
     "note": "Payload Too Large"
   },
   {
-    "code": "414",
+    "code": 414,
     "description": {
       "en-US": "The URI requested by the client is longer than the server is willing to interpret.",
       "ja-JP": "クライアントがリクエストした URI が、サーバーで扱える長さを超えていることを示します。"
@@ -304,7 +304,7 @@
     "note": "URI Too Long"
   },
   {
-    "code": "415",
+    "code": 415,
     "description": {
       "en-US": "The media format of the requested data is not supported by the server, so the server is rejecting the request.",
       "ja-JP": "リクエストされたデータのメディア形式をサーバーが対応しておらず、サーバーはリクエストを拒否したことを示します。"
@@ -312,7 +312,7 @@
     "note": "Unsupported Media Type"
   },
   {
-    "code": "416",
+    "code": 416,
     "description": {
       "en-US": " The range specified by the Range header field in the request cannot be fulfilled. It's possible that the range is outside the size of the target URI's data. ",
       "ja-JP": "リクエスト内の Range ヘッダー項目で指定された範囲を満たすことができないことを示します。指定した範囲が、目的の URI のデータサイズを超えている可能性があります。"
@@ -320,7 +320,7 @@
     "note": "Range Not Satisfiable"
   },
   {
-    "code": "417",
+    "code": 417,
     "description": {
       "en-US": "This response code means the expectation indicated by the Expect request header field cannot be met by the server.",
       "ja-JP": "このレスポンスコードは、Expect リクエストヘッダーで指定された内容がサーバー側と適合しないことを示します。"
@@ -328,7 +328,7 @@
     "note": "Expectation Failed"
   },
   {
-    "code": "418",
+    "code": 418,
     "description": {
       "en-US": "The server refuses the attempt to brew coffee with a teapot.",
       "ja-JP": "サーバーは、ティーポットでコーヒーを淹れようとする試みを拒否します。"
@@ -336,7 +336,7 @@
     "note": "I'm a teapot"
   },
   {
-    "code": "421",
+    "code": 421,
     "description": {
       "en-US": " The request was directed at a server that is not able to produce a response. This can be sent by a server that is not configured to produce responses for the combination of scheme and authority that are included in the request URI. ",
       "ja-JP": "リクエストは、レスポンスを生成できないサーバーに送られました。リクエストの URI に含まれているスキームや権限の組み合わせに対してレスポンスを生成するよう設定されていないサーバーが、このコードを送ることがあります。"
@@ -344,7 +344,7 @@
     "note": "Misdirected Request"
   },
   {
-    "code": "422",
+    "code": 422,
     "description": {
       "en-US": "The request was well-formed but was unable to be followed due to semantic errors.",
       "ja-JP": "リクエストは適正ですが、意味が誤っているために従うことができません。"
@@ -352,7 +352,7 @@
     "note": "Unprocessable Entity"
   },
   {
-    "code": "423",
+    "code": 423,
     "description": {
       "en-US": "The resource that is being accessed is locked.",
       "ja-JP": "アクセス中のリソースはロックされています。"
@@ -360,7 +360,7 @@
     "note": "Locked"
   },
   {
-    "code": "424",
+    "code": 424,
     "description": {
       "en-US": "The request failed due to failure of a previous request.",
       "ja-JP": "前のリクエストが失敗したため、このリクエストも失敗しました。"
@@ -368,7 +368,7 @@
     "note": "Failed Dependency"
   },
   {
-    "code": "425",
+    "code": 425,
     "description": {
       "en-US": "Indicates that the server is unwilling to risk processing a request that might be replayed.",
       "ja-JP": "サーバーが、繰り返される可能性のあるリクエストを処理するリスクを望まないことを示します。"
@@ -376,7 +376,7 @@
     "note": "Too Early"
   },
   {
-    "code": "426",
+    "code": 426,
     "description": {
       "en-US": " The server refuses to perform the request using the current protocol but might be willing to do so after the client upgrades to a different protocol. The server sends an Upgrade header in a 426 response to indicate the required protocol(s). ",
       "ja-JP": "サーバーは現在のプロトコルを使用したリクエストの実行を拒否しましたが、クライアントが別のプロトコルにアップグレードした後は受け入れることができます。サーバーは必要なプロトコルを示すために、426 のレスポンスで Upgrade (en-US) ヘッダー項目を送信しなければなりません。"
@@ -384,7 +384,7 @@
     "note": "Upgrade Required"
   },
   {
-    "code": "428",
+    "code": 428,
     "description": {
       "en-US": " The origin server requires the request to be conditional. This response is intended to prevent the 'lost update' problem, where a client GETs a resource's state, modifies it and PUTs it back to the server, when meanwhile a third party has modified the state on the server, leading to a conflict. ",
       "ja-JP": "オリジンサーバーはリクエストが条件付きになることを必要としています。このレスポンスは「ロストアップデート問題」 (クライアントがリソースの状態を取得して変更およびサーバーに送信している間に、第三者がサーバーの状態を変更して競合が発生すること) を防ごうとするものです。"
@@ -392,7 +392,7 @@
     "note": "Precondition Required"
   },
   {
-    "code": "429",
+    "code": 429,
     "description": {
       "en-US": "The user has sent too many requests in a given amount of time (\"rate limiting\").",
       "ja-JP": "ユーザーは一定の時間内に大量のリクエストを送信しました (\"レート制限\")。"
@@ -400,7 +400,7 @@
     "note": "Too Many Requests"
   },
   {
-    "code": "431",
+    "code": 431,
     "description": {
       "en-US": " The server is unwilling to process the request because its header fields are too large. The request may be resubmitted after reducing the size of the request header fields. ",
       "ja-JP": "ヘッダー項目が大きすぎるため、サーバーはリクエストの処理を望みません。ヘッダー項目のサイズを削減した後に、リクエストを再送信できます。"
@@ -408,7 +408,7 @@
     "note": "Request Header Fields Too Large"
   },
   {
-    "code": "451",
+    "code": 451,
     "description": {
       "en-US": "The user agent requested a resource that cannot legally be provided, such as a web page censored by a government.",
       "ja-JP": "ユーザーエージェントが政府によって検閲されたウェブページなど、違法なリソースをリクエストしています。"
@@ -416,7 +416,7 @@
     "note": "Unavailable For Legal Reasons"
   },
   {
-    "code": "500",
+    "code": 500,
     "description": {
       "en-US": "The server has encountered a situation it does not know how to handle.",
       "ja-JP": "サーバー側で処理方法がわからない事態が発生したことを示します。"
@@ -424,7 +424,7 @@
     "note": "Internal Server Error"
   },
   {
-    "code": "501",
+    "code": 501,
     "description": {
       "en-US": "The request method is not supported by the server and cannot be handled. The only methods that servers are required to support (and therefore that must not return this code) are GET and HEAD.",
       "ja-JP": "リクエストメソッドをサーバーが対応しておらず、扱えないことを示します。サーバーが対応しなければならない (従って、このコードを返してはならない) メソッドは GET と HEAD だけです。"
@@ -432,7 +432,7 @@
     "note": "Not Implemented"
   },
   {
-    "code": "502",
+    "code": 502,
     "description": {
       "en-US": "This error response means that the server, while working as a gateway to get a response needed to handle the request, got an invalid response.",
       "ja-JP": "このエラーレスポンスは、リクエストの処理に必要なレスポンスを受け取るゲートウェイとして動作するサーバーが無効なレスポンスを受け取ったことを示します。"
@@ -440,7 +440,7 @@
     "note": "Bad Gateway"
   },
   {
-    "code": "503",
+    "code": 503,
     "description": {
       "en-US": " The server is not ready to handle the request. Common causes are a server that is down for maintenance or that is overloaded. Note that together with this response, a user-friendly page explaining the problem should be sent. This response should be used for temporary conditions and the Retry-After HTTP header should, if possible, contain the estimated time before the recovery of the service. The webmaster must also take care about the caching-related headers that are sent along with this response, as these temporary condition responses should usually not be cached. ",
       "ja-JP": "サーバーはリクエストを処理する準備ができていないことを示します。一般的な原因は、サーバーがメンテナンスや過負荷でダウンしていることです。このレスポンスとともに問題について説明する、ユーザーにわかりやすいページを送信するべきであることに注意してください。このレスポンスは一時的な状況について使用するものであり、また可能であれば、サービスが復旧する前に Retry-After: HTTP ヘッダーに予定時刻を含めるべきです。また、これら一時的な状況のレスポンスは通常キャッシュされるべきではないことから、ウェブ管理者はこのレスポンスとともに送られるキャッシュ関連のヘッダーに注意しなければなりません。"
@@ -448,7 +448,7 @@
     "note": "Service Unavailable"
   },
   {
-    "code": "504",
+    "code": 504,
     "description": {
       "en-US": "This error response is given when the server is acting as a gateway and cannot get a response in time.",
       "ja-JP": "このエラーレスポンスは、ゲートウェイとして動作するサーバーが時間内にレスポンスを得られない場合に送られます。"
@@ -456,7 +456,7 @@
     "note": "Gateway Timeout"
   },
   {
-    "code": "505",
+    "code": 505,
     "description": {
       "en-US": "The HTTP version used in the request is not supported by the server.",
       "ja-JP": "リクエストで使用した HTTP のバージョンをサーバーが対応していないことを示します。"
@@ -464,7 +464,7 @@
     "note": "HTTP Version Not Supported"
   },
   {
-    "code": "506",
+    "code": 506,
     "description": {
       "en-US": "The server has an internal configuration error: the chosen variant resource is configured to engage in transparent content negotiation itself, and is therefore not a proper end point in the negotiation process.",
       "ja-JP": "サーバーに内部構成エラーがあることを示します。選択したバリアントリソースが透過的コンテンツネゴシエーション自体に携わるよう設定されており、ネゴシエーションプロセスが正しく終了しなかったことを示します。"
@@ -472,7 +472,7 @@
     "note": "Variant Also Negotiates"
   },
   {
-    "code": "507",
+    "code": 507,
     "description": {
       "en-US": "The method could not be performed on the resource because the server is unable to store the representation needed to successfully complete the request.",
       "ja-JP": "サーバーがリクエストを完了させるのに必要な表現を保存することができなかったため、メソッドがリソースに対して実行できなかったことを示します。"
@@ -480,7 +480,7 @@
     "note": "Insufficient Storage"
   },
   {
-    "code": "508",
+    "code": 508,
     "description": {
       "en-US": "The server detected an infinite loop while processing the request.",
       "ja-JP": "サーバーは、リクエストの処理中に無限ループを検出しました。"
@@ -488,7 +488,7 @@
     "note": "Loop Detected"
   },
   {
-    "code": "510",
+    "code": 510,
     "description": {
       "en-US": "Further extensions to the request are required for the server to fulfill it.",
       "ja-JP": "サーバーがリクエストを処理するために、リクエストをさらに拡張することが必要です。"
@@ -496,7 +496,7 @@
     "note": "Not Extended"
   },
   {
-    "code": "511",
+    "code": 511,
     "description": {
       "en-US": "Indicates that the client needs to authenticate to gain network access.",
       "ja-JP": "ステータスコード 511 は、クライアントがネットワークでアクセスするために認証が必要であることを示します。"
