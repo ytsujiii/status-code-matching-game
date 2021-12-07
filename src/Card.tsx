@@ -1,5 +1,5 @@
 import React from 'react';
-import CardState from './constants/CardState';
+import { CardState } from './constants/Card';
 import FaceDownCardImg from './images/face_down.png';
 
 interface Props {
