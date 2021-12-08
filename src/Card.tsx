@@ -32,24 +32,19 @@ const useStyles = makeStyles({
   },
 });
 
-interface Props {
-  data: CardType;
-  onClick: () => void;
-}
-
-export default function Card(props: Props): React.ReactElement {
-  const { data, onClick } = props;
+export default function Card(props: CardType): React.ReactElement {
+  const { header, body, state, onClick } = props;
   const classes = useStyles();
 
-  if (data.state === 'removed') {
+  if (state === 'removed') {
     return <div className={classes.card} />;
-  } else if (data.state === 'faceDown') {
-    return <img className={classes.card} src={FaceDownCardImg} alt="" />;
+  } else if (state === 'faceDown') {
+    return <img onClick={onClick} className={classes.card} src={FaceDownCardImg} alt="" />;
   } else {
     return (
-      <div className={clsx([classes.card, classes.faceUp])}>
-        <div className={classes.code}>{data.code}</div>
-        <div className={classes.note}>{data.note}</div>
+      <div onClick={onClick} className={clsx([classes.card, classes.faceUp])}>
+        <div className={classes.code}>{header}</div>
+        <div className={classes.note}>{body}</div>
       </div>
     );
   }
