@@ -1,6 +1,6 @@
 import { makeStyles } from '@material-ui/styles';
 import clsx from 'clsx';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { Card as CardType } from './constants/Card';
 import FaceDownCardImg from './images/face_down.png';
 
@@ -8,6 +8,7 @@ const useStyles = makeStyles({
   card: {
     width: 120,
     height: 188,
+    padding: 6,
   },
   faceUp: {
     border: '1px solid black',
@@ -18,33 +19,54 @@ const useStyles = makeStyles({
     alignContent: 'center',
     textAlign: 'center',
   },
-  code: {
+  header: {
     flex: 1,
     display: 'flex',
     alignItems: 'center',
     justifyContent: 'center',
   },
-  note: {
+  body: {
     flex: 1,
     display: 'flex',
     alignItems: 'flex-start',
     justifyContent: 'center',
   },
+  description: {
+    alignItems: 'center',
+    fontSize: 10,
+  },
 });
 
 export default function Card(props: CardType): React.ReactElement {
   const { header, body, state, onClick } = props;
+  const [trimmedBody, setTrimmedBody] = useState<string>();
+  const descriptionLength = 145;
   const classes = useStyles();
+
+  useEffect(() => {
+    if (body.length <= descriptionLength) {
+      setTrimmedBody(body);
+    } else {
+      const trimmed = body.substring(0, descriptionLength - 1) + '…';
+      setTrimmedBody(trimmed);
+    }
+  }, [body]);
 
   if (state === 'removed') {
     return <div className={classes.card} />;
   } else if (state === 'faceDown') {
     return <img onClick={onClick} className={classes.card} src={FaceDownCardImg} alt="" />;
+  } else if (header) {
+    return (
+      <div onClick={onClick} className={clsx([classes.card, classes.faceUp])}>
+        <div className={classes.header}>{header}</div>
+        <div className={classes.body}>{body}</div>
+      </div>
+    );
   } else {
     return (
       <div onClick={onClick} className={clsx([classes.card, classes.faceUp])}>
-        <div className={classes.code}>{header}</div>
-        <div className={classes.note}>{body}</div>
+        <div className={clsx([classes.body, classes.description])}>{trimmedBody}</div>
       </div>
     );
   }
