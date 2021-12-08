@@ -19,7 +19,7 @@ const useStyles = makeStyles({
     textAlign: 'center',
   },
   faceDown: {
-    width: "100%",
+    width: '100%',
   },
   header: {
     flex: 1,

@@ -1,7 +1,7 @@
 import { makeStyles } from '@material-ui/styles';
 import React, { useCallback, useEffect, useRef, useState } from 'react';
 import Card from './Card';
-import { Card as CardType, CardState } from './constants/Card';
+import { Card as CardType } from './constants/Card';
 import { LocaleCode } from './constants/Locale';
 import statusCodes from './status_codes.json';
 
@@ -13,9 +13,9 @@ const shuffle = (arr: Array<any>): void => {
     arr[i] = arr[j];
     arr[j] = tmp;
   }
-}
+};
 const localeCode: LocaleCode = 'ja-JP';
-const statusCodeCount = 15;
+const statusCodeCount = 10;
 const statusCodeIndexes: number[] = Array.from(Array(statusCodes.length), (_, idx) => idx);
 shuffle(statusCodeIndexes);
 
@@ -52,7 +52,7 @@ export default function Game(): React.ReactElement {
     shuffle(initialCardData);
   }, []);
   useEffect(() => {
-    setFaceUpCards(cards.filter(card => card.state === "faceUp"));
+    setFaceUpCards(cards.filter((card) => card.state === 'faceUp'));
     cardsRef.current = cards;
   }, [cards]);
   useEffect(() => {
@@ -66,46 +66,55 @@ export default function Game(): React.ReactElement {
     if (c1.id % 1000 === c2.id % 1000) {
       // ステータスコードがそろった
       setTimeout(() => {
-        setCards(cardsRef.current.map(card => {
-          if (card.id === c1.id || card.id === c2.id) {
-            return {...card, state: 'removed'};
-          } else {
-            return card;
-          }
-        }));
-      }, 500);
+        setCards(
+          cardsRef.current.map((card) => {
+            if (card.id === c1.id || card.id === c2.id) {
+              return { ...card, state: 'removed' };
+            } else {
+              return card;
+            }
+          })
+        );
+      }, 1000);
     } else {
       setTimeout(() => {
-        setCards(cardsRef.current.map(card => {
-          if (card.id === c1.id || card.id === c2.id) {
-            return {...card, state: 'faceDown'};
-          } else {
-            return card;
-          }
-        }));
-      }, 500);
+        setCards(
+          cardsRef.current.map((card) => {
+            if (card.id === c1.id || card.id === c2.id) {
+              return { ...card, state: 'faceDown' };
+            } else {
+              return card;
+            }
+          })
+        );
+      }, 3000);
     }
-  }, [faceUpCards, faceUpCardCount])
+  }, [faceUpCards, faceUpCardCount]);
 
-  const onCardClicked = useCallback((cardId: number): void => {
-    if (faceUpCardCount >= 2 || faceUpCardCount < 0) {
-      return;
-    }
-    // 1枚目と同じカードをめくった
-    if (faceUpCardCount === 1 && faceUpCards[0].id === cardId) {
-      setCards(cardsRef.current.map(card => {
+  const onCardClicked = useCallback(
+    (cardId: number): void => {
+      if (faceUpCardCount >= 2 || faceUpCardCount < 0) {
+        return;
+      }
+      // 1枚目と同じカードをめくった
+      if (faceUpCardCount === 1 && faceUpCards[0].id === cardId) {
+        setCards(
+          cardsRef.current.map((card) => {
+            if (card.id !== cardId) return card;
+            else return { ...card, state: 'faceDown' };
+          })
+        );
+        return;
+      }
+
+      const newCards: CardType[] = cardsRef.current.map((card) => {
         if (card.id !== cardId) return card;
-        else return { ...card, state: 'faceDown' };
-      }));
-      return;
-    }
-
-    const newCards: CardType[] = cardsRef.current.map(card => {
-      if (card.id !== cardId) return card;
-      return { ...card, state: 'faceUp' };
-    });
-    setCards(newCards);
-  }, [faceUpCardCount]);
+        return { ...card, state: 'faceUp' };
+      });
+      setCards(newCards);
+    },
+    [faceUpCardCount]
+  );
 
   const classes = useStyles();
   return (
