@@ -5,16 +5,20 @@ import { Card as CardType } from './constants/Card';
 import { LocaleCode } from './constants/Locale';
 import statusCodes from './status_codes.json';
 
+// Fisher-Yates shuffle
+const shuffle = (arr: Array<any>): void => {
+  for (let i = arr.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    const tmp = arr[i];
+    arr[i] = arr[j];
+    arr[j] = tmp;
+  }
+}
 const localeCode: LocaleCode = 'ja-JP';
 const statusCodeCount = 15;
 const statusCodeIndexes: number[] = Array.from(Array(statusCodes.length), (_, idx) => idx);
-// Fisher-Yates shuffle
-for (let i = statusCodeIndexes.length - 1; i > 0; i--) {
-  const j = Math.floor(Math.random() * (i + 1));
-  const tmp = statusCodeIndexes[i];
-  statusCodeIndexes[i] = statusCodeIndexes[j];
-  statusCodeIndexes[j] = tmp;
-}
+shuffle(statusCodeIndexes);
+
 const initialCardData: CardType[] = [];
 statusCodeIndexes.slice(0, statusCodeCount).forEach((statusCodeIdx) => {
   // コードと短い説明のカード
@@ -37,6 +41,7 @@ statusCodeIndexes.slice(0, statusCodeCount).forEach((statusCodeIdx) => {
     },
   });
 });
+shuffle(initialCardData);
 
 const useStyles = makeStyles({
   wrapper: {
