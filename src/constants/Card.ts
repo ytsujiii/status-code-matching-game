@@ -1,8 +1,8 @@
 export interface Card {
-  id?: number;
+  id: number;
   header?: string;
   body: string;
   state: CardState;
-  onClick: () => void;
+  onClick?: () => void;
 }
 export type CardState = 'faceDown' | 'faceUp' | 'removed';

@@ -8,7 +8,6 @@ const useStyles = makeStyles({
   card: {
     width: 120,
     height: 188,
-    padding: 6,
   },
   faceUp: {
     border: '1px solid black',
@@ -18,6 +17,9 @@ const useStyles = makeStyles({
     justifyContent: 'space-around',
     alignContent: 'center',
     textAlign: 'center',
+  },
+  faceDown: {
+    width: "100%",
   },
   header: {
     flex: 1,
@@ -32,6 +34,7 @@ const useStyles = makeStyles({
     justifyContent: 'center',
   },
   description: {
+    padding: 6,
     alignItems: 'center',
     fontSize: 10,
   },
@@ -55,10 +58,14 @@ export default function Card(props: CardType): React.ReactElement {
   if (state === 'removed') {
     return <div className={classes.card} />;
   } else if (state === 'faceDown') {
-    return <img onClick={onClick} className={classes.card} src={FaceDownCardImg} alt="" />;
+    return (
+      <div className={classes.card}>
+        <img onClick={onClick} className={classes.faceDown} src={FaceDownCardImg} alt="" draggable={false} />
+      </div>
+    );
   } else if (header) {
     return (
-      <div onClick={onClick} className={clsx([classes.card, classes.faceUp])}>
+      <div onClick={onClick} className={clsx([classes.card, classes.faceUp])} draggable={false}>
         <div className={classes.header}>{header}</div>
         <div className={classes.body}>{body}</div>
       </div>
