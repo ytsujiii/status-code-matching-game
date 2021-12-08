@@ -20,7 +20,10 @@ const statusCodeIndexes: number[] = Array.from(Array(statusCodes.length), (_, id
 shuffle(statusCodeIndexes);
 
 const useStyles = makeStyles({
-  wrapper: {
+  root: {
+    height: '100%',
+  },
+  gridWrapper: {
     display: 'grid',
     gridTemplateColumns: 'repeat(10, 1fr)',
   },
@@ -75,19 +78,7 @@ export default function Game(): React.ReactElement {
             }
           })
         );
-      }, 1000);
-    } else {
-      setTimeout(() => {
-        setCards(
-          cardsRef.current.map((card) => {
-            if (card.id === c1.id || card.id === c2.id) {
-              return { ...card, state: 'faceDown' };
-            } else {
-              return card;
-            }
-          })
-        );
-      }, 3000);
+      }, 300);
     }
   }, [faceUpCards, faceUpCardCount]);
 
@@ -116,12 +107,30 @@ export default function Game(): React.ReactElement {
     [faceUpCardCount]
   );
 
+  const onScreenClicked = useCallback(() => {
+    if (faceUpCardCount !== 2) return;
+
+    const c1 = faceUpCards[0];
+    const c2 = faceUpCards[1];
+    setCards(
+      cardsRef.current.map((card) => {
+        if (card.id === c1.id || card.id === c2.id) {
+          return { ...card, state: 'faceDown' };
+        } else {
+          return card;
+        }
+      })
+    );
+  }, [faceUpCards, faceUpCardCount]);
+
   const classes = useStyles();
   return (
-    <div className={classes.wrapper}>
-      {cards.map((card) => (
-        <Card key={card.id} {...card} onClick={() => onCardClicked(card.id)} />
-      ))}
+    <div className={classes.root} onClick={onScreenClicked}>
+      <div className={classes.gridWrapper}>
+        {cards.map((card) => (
+          <Card key={card.id} {...card} onClick={() => onCardClicked(card.id)} />
+        ))}
+      </div>
     </div>
   );
 }

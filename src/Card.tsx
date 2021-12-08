@@ -21,6 +21,10 @@ const useStyles = makeStyles({
   faceDown: {
     width: '100%',
   },
+  removed: {
+    backgroundColor: 'lightgray',
+    color: 'gray',
+  },
   header: {
     flex: 1,
     display: 'flex',
@@ -43,7 +47,7 @@ const useStyles = makeStyles({
 export default function Card(props: CardType): React.ReactElement {
   const { header, body, state, onClick } = props;
   const [trimmedBody, setTrimmedBody] = useState<string>();
-  const descriptionLength = 145;
+  const descriptionLength = 130;
   const classes = useStyles();
 
   useEffect(() => {
@@ -56,7 +60,20 @@ export default function Card(props: CardType): React.ReactElement {
   }, [body]);
 
   if (state === 'removed') {
-    return <div className={classes.card} />;
+    if (header) {
+      return (
+        <div onClick={onClick} className={clsx([classes.card, classes.faceUp, classes.removed])} draggable={false}>
+          <div className={classes.header}>{header}</div>
+          <div className={classes.body}>{body}</div>
+        </div>
+      );
+    } else {
+      return (
+        <div onClick={onClick} className={clsx([classes.card, classes.faceUp, classes.removed])}>
+          <div className={clsx([classes.body, classes.description])}>{trimmedBody}</div>
+        </div>
+      );
+    }
   } else if (state === 'faceDown') {
     return (
       <div className={classes.card}>
